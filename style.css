@@ -26,7 +26,7 @@ main{
     flex-direction:column;
     align-items:center;
 
-    border:1px solid #333;
+    border:1px solid #ee7cf8;;
     border-radius:25px;
     margin:15px;
 
@@ -340,7 +340,7 @@ main{
     align-items:center;
     justify-content:center;
     padding:13px 26px;
-    border:1px solid #b56cff;
+    border:1px solid #ee7cf8;
     border-radius:35px;
     color:#fff;
     text-decoration:none;
@@ -349,7 +349,7 @@ main{
 }
 
 .project-btn:hover{
-    background:#b56cff;
+    background:#ee7cf8;
     color:#fff;
     transform:translateY(-3px);
 
@@ -444,14 +444,14 @@ main{
     width:14px;
     height:14px;
     border-radius:50%;
-    background:#28e98c;
+    background:#a1135a;
     border:4px solid #160910;
     transition:.4s;
 }
 
 .timeline-item:hover .timeline-dot{
     transform:scale(1.4);
-    box-shadow:0 0 20px #28e98c;
+    box-shadow:0 0 20px #a1135a;
 }
 
 .year{
@@ -469,7 +469,7 @@ main{
 
 .timeline-content h4{
     margin:12px 0;
-    color:#28e98c;
+    color:#a1135a;
     font-size:18px;
     font-weight:500;
 }
