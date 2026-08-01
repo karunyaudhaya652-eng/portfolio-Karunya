@@ -53,23 +53,33 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
 
 </div>
         <div class="right">
-       <nav>
-  <div class="menu-toggle" id="menuToggle">
-    <i class="fa-solid fa-bars"></i>
-</div>
+     <nav>
 
-    <ul id="navMenu">
-        <li><a href="#home" class="active">Home</a></li>
+   
+
+    <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#education">Education</a></li>
-        <li><a href="#projects">Projects</a></li>
+        <li><a href="#certificates">My Certificates</a></li>
+         <li><a href="#skills">My Skills</a></li>
         <li><a href="#contact">Contact</a></li>
     </ul>
+     <a href="mailto:yourmail@gmail.com" class="talk-btn">
+    Let's Talk
+</a>
 
-   <button class="talk-btn">
-    💬 Let's Talk
-</button>
+    <div class="hamburger" id="hamburger">
+
+        <span></span>
+        <span></span>
+        <span></span>
+
+    </div>
+
 </nav>
+
+<div class="overlay" id="overlay"></div>
             <section class="hero" id="home">
 
             <span class="badge">
@@ -607,6 +617,16 @@ Made with ❤️ by <span>Karunya S</span><br>
     </div>
   <!-- JavaScript -->
     <script src="script.js"></script>
+    <script>
+
+const menu = document.getElementById("menu-toggle");
+const nav = document.getElementById("nav-links");
+
+menu.addEventListener("click", () => {
+    nav.classList.toggle("active");
+});
+
+</script>
 </div>
 </body>
 </html>

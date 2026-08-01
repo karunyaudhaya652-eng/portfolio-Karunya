@@ -21,3 +21,46 @@ window.addEventListener("click", (e) => {
         popup.style.display = "none";
     }
 });
+const hamburger = document.getElementById("hamburger");
+
+const navLinks = document.querySelector(".nav-links");
+
+const overlay = document.getElementById("overlay");
+
+hamburger.addEventListener("click",()=>{
+
+hamburger.classList.toggle("active");
+
+navLinks.classList.toggle("active");
+
+overlay.classList.toggle("show");
+
+document.body.classList.toggle("no-scroll");
+
+});
+overlay.addEventListener("click",()=>{
+
+hamburger.classList.remove("active");
+
+navLinks.classList.remove("active");
+
+overlay.classList.remove("show");
+
+document.body.classList.remove("no-scroll");
+
+});
+document.querySelectorAll(".nav-links a").forEach(link=>{
+
+link.addEventListener("click",()=>{
+
+hamburger.classList.remove("active");
+
+navLinks.classList.remove("active");
+
+overlay.classList.remove("show");
+
+document.body.classList.remove("no-scroll");
+
+});
+
+});
