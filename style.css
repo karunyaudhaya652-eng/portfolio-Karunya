@@ -71,7 +71,9 @@ main{
     font-size:34px;
     margin-bottom:15px;
 }
-
+.profile-info h1 span{
+    color:#ee7cf8;
+}
 .profile-info p{
     color:#bbb;
     line-height:1.7;
