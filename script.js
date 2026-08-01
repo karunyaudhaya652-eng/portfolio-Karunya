@@ -1,3 +1,9 @@
+const menuToggle = document.getElementById("menuToggle");
+const navMenu = document.getElementById("navMenu");
+
+menuToggle.addEventListener("click", () => {
+    navMenu.classList.toggle("active");
+});
 const popup = document.getElementById("popup");
 const talkBtn = document.querySelector(".talk-btn");
 const closeBtn = document.querySelector(".close");

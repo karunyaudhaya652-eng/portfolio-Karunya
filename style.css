@@ -125,19 +125,42 @@ main{
     transform:translateY(-4px);
     box-shadow:0 10px 25px rgba(238,124,248,.3);
 }
+/* ==========================
+   HAMBURGER MENU
+========================== */
 
-/* ===========================
-   RIGHT SIDE
-=========================== */
-
-.right{
-    flex:1;
+.menu-toggle{
+    display:none;
+    font-size:28px;
+    color:#fff;
+    cursor:pointer;
 }
 
-/* ===========================
-   NAVBAR
-=========================== */
+.right nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:relative;
+}
 
+.right nav ul{
+    display:flex;
+    list-style:none;
+    gap:40px;
+    margin:0;
+    padding:0;
+}
+
+@media (max-width:768px){
+
+    .menu-toggle{
+        display:block;
+        order:2;
+    }
+
+    .talk-btn{
+        display:none;
+    }
 .right nav{
     display:flex;
     justify-content:space-between;
@@ -148,13 +171,31 @@ main{
     margin-bottom:90px;
     background:rgba(255,255,255,.03);
     backdrop-filter:blur(12px);
+    position:relative;
+}
+    .right nav ul{
+        display:none;
+        flex-direction:column;
+        position:absolute;
+        top:70px;
+        right:0;
+        width:220px;
+        background:#1b1018;
+        border:1px solid #333;
+        border-radius:15px;
+        padding:20px;
+        gap:20px;
+    }
+
+    .right nav ul.active{
+        display:flex;
+    }
 }
 
-.right nav ul{
-    display:flex;
-    gap:40px;
-    list-style:none;
-}
+    .talk-btn{
+        display:none;
+    }
+
 
 .right nav ul li a{
     color:white;
@@ -187,6 +228,7 @@ main{
 }
 
 .talk-btn{
+    display:block;
     padding:14px 28px;
     border:none;
     border-radius:40px;
