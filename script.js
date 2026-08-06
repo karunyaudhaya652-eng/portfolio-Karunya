@@ -1,99 +1,78 @@
 // ==========================
-// HAMBURGER MENU
+// 1. HAMBURGER MENU
 // ==========================
-
 const hamburger = document.getElementById("hamburger");
 const navLinks = document.querySelector(".nav-links");
 
-hamburger.addEventListener("click", () => {
-    hamburger.classList.toggle("active");
-    navLinks.classList.toggle("active");
-    document.body.classList.toggle("no-scroll");
-});
+if (hamburger && navLinks) {
+    hamburger.addEventListener("click", () => {
+        console.log("Hamburger clicked");
+        hamburger.classList.toggle("active");
+        navLinks.classList.toggle("active");
+        document.body.classList.toggle("no-scroll");
+    });
+}
 
-// Close menu after clicking a nav link
-document.querySelectorAll(".nav-links a").forEach(link => {
-    link.addEventListener("click", () => {
-        hamburger.classList.remove("active");
-        navLinks.classList.remove("active");
-        document.body.classList.remove("no-scroll");
+// ==========================
+// 2. NAVBAR SCROLL EFFECT
+// ==========================
+const nav = document.querySelector(".right nav");
+
+if (nav) {
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 30) {
+            nav.style.background = "rgba(27,16,24,0.95)";
+            nav.style.boxShadow = "0 10px 30px rgba(0,0,0,.45)";
+        } else {
+            nav.style.background = "rgba(27,16,24,0.75)";
+            nav.style.boxShadow = "0 8px 30px rgba(0,0,0,.25)";
+        }
+    });
+}
+
+// ==========================
+// 3. NAV LINK CLICK / ACTIVE STATE
+// ==========================
+const allNavLinks = document.querySelectorAll(".nav-links a");
+
+allNavLinks.forEach(link => {
+    link.addEventListener("click", function() {
+        // பழைய active class-ஐ நீக்கிவிட்டு கிளிக் செய்ததற்கு மட்டும் சேர்க்கும்
+        allNavLinks.forEach(item => item.classList.remove("active"));
+        this.classList.add("active");
+
+        // Mobile-ல் Menu open-ல் இருந்தால் கிளிக் செய்ததும் மூடும்
+        if (navLinks.classList.contains("active")) {
+            hamburger.classList.remove("active");
+            navLinks.classList.remove("active");
+            document.body.classList.remove("no-scroll");
+        }
     });
 });
 
 // ==========================
-// POPUP
+// 4. POPUP MODAL
 // ==========================
-
 const popup = document.getElementById("popup");
-const closeBtn = document.querySelector(".close");
 const talkBtn = document.querySelector(".talk-btn");
+const closeBtn = document.querySelector(".close");
 
-// Open popup
-talkBtn.addEventListener("click", function(e) {
-    e.preventDefault();
-    popup.style.display = "flex";
-});
+if (popup && talkBtn && closeBtn) {
+    // Open popup
+    talkBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        popup.style.display = "flex";
+    });
 
-// Close popup using X
-closeBtn.addEventListener("click", () => {
-    popup.style.display = "none";
-});
-
-// Close popup when clicking outside
-window.addEventListener("click", (e) => {
-    if (e.target === popup) {
+    // Close popup
+    closeBtn.addEventListener("click", () => {
         popup.style.display = "none";
-    }
-});
-
-// ==========================
-// ACTIVE NAV LINK
-// ==========================
-
-const sections = document.querySelectorAll("section");
-const navItems = document.querySelectorAll(".nav-links a");
-
-window.addEventListener("scroll", () => {
-
-    let current = "";
-
-    sections.forEach(section => {
-
-        const sectionTop = section.offsetTop - 150;
-        const sectionHeight = section.offsetHeight;
-
-        if (window.scrollY >= sectionTop &&
-            window.scrollY < sectionTop + sectionHeight) {
-
-            current = section.getAttribute("id");
-        }
-
     });
 
-    navItems.forEach(link => {
-
-        link.classList.remove("active");
-
-        if (link.getAttribute("href") === "#" + current) {
-            link.classList.add("active");
+    // Close when clicking outside popup box
+    window.addEventListener("click", (e) => {
+        if (e.target === popup) {
+            popup.style.display = "none";
         }
-
     });
-
-});
-
-// ==========================
-// HEADER SHADOW
-// ==========================
-
-const nav = document.querySelector("nav");
-
-window.addEventListener("scroll", () => {
-
-    if (window.scrollY > 20) {
-        nav.style.boxShadow = "0 8px 25px rgba(0,0,0,0.3)";
-    } else {
-        nav.style.boxShadow = "none";
-    }
-
-});
+}
